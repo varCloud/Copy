@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Copy</string>
+    <string name="action_settings">Settings</string>
+    <string name="color">Color</string>
+    <string name="bn">Blanco \ Negro</string>
+    <string name="Titulo">El titulo de la aplicacion es </string>
+</resources>
