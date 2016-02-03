@@ -89,7 +89,7 @@ public class Conexion extends SQLiteOpenHelper {
     }
 
     public final String bd = "  CREATE TABLE catporcentaje (\n" +
-            "  idPorcentaje int(11) NOT NULL AUTOINCREMENT,\n" +
+            "  idPorcentaje INTEGER AUTOINCREMENT NOT NULL ,\n" +
             "  descripcion varchar(100) NOT NULL\n" +
             ")\n -- ----------------------------\n" +
             "-- Records of catporcentaje\n" +
@@ -97,9 +97,6 @@ public class Conexion extends SQLiteOpenHelper {
             "INSERT INTO catporcentaje VALUES ('1', '20%');\n" +
             "INSERT INTO catporcentaje VALUES ('2', '50%');\n" +
             "INSERT INTO catporcentaje VALUES ('3', '100%');\n" +
-            "\n -- ----------------------------\n" +
-            "-- Table structure for cattipocopia\n" +
-            "-- ----------------------------\n"+
             "CREATE TABLE cattipocopia (\n" +
             "  idCatTipoCopia int(11) INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
             "  Descripcion varchar(100) NOT NULL )\n"+
@@ -130,15 +127,10 @@ public class Conexion extends SQLiteOpenHelper {
             "-- Table structure for porcentajexcopiacolor\n" +
             "-- ----------------------------\n" +
             "CREATE TABLE porcentajexcopiacolor (\n" +
-            "  idPorcentajeCopiaColor int(11) NOT NULL AUTOINCREMENT,\n" +
+            "  idPorcentajeCopiaColor int(11) PRIMARY KEY NOT NULL AUTOINCREMENT,\n" +
             "  idRangoXTipoCopiaColor int(11) NOT NULL,\n" +
             "  IdPorcentaje int(11) NOT NULL,\n" +
             "  costo decimal(10,2) NOT NULL,\n" +
-            "  PRIMARY KEY (idPorcentajeCopiaColor),\n" +
-            "  KEY porcentajexcopiacolor_ibfk_1 (idRangoXTipoCopiaColor),\n" +
-            "  KEY porcentajexcopiacolor_ibfk_2 (IdPorcentaje),\n" +
-            "  CONSTRAINT porcentajexcopiacolor_ibfk_1 FOREIGN KEY (idRangoXTipoCopiaColor) REFERENCES rangosxtipocopiacolor (idRangoXTipoCopiaColor) ON DELETE NO ACTION ON UPDATE NO ACTION,\n" +
-            "  CONSTRAINT porcentajexcopiacolor_ibfk_2 FOREIGN KEY (IdPorcentaje) REFERENCES catporcentaje (idPorcentaje) ON DELETE NO ACTION ON UPDATE NO ACTION\n" +
             ") \n" +
             "\n" +
             "-- ----------------------------\n" +
@@ -175,16 +167,12 @@ public class Conexion extends SQLiteOpenHelper {
             "-- ----------------------------\n" +
             "-- Table structure for rangosxtipocopiabn\n" +
             "-- ----------------------------\n" +
-            "DROP TABLE IF EXISTS rangosxtipocopiabn;\n" +
             "CREATE TABLE rangosxtipocopiabn (\n" +
-            "  idRangoXTipoCopiaBN int(11) NOT NULL AUTO_INCREMENT,\n" +
+            "  idRangoXTipoCopiaBN int(11) PRIMARY KEY NOT NULL AUTOINCREMENT,\n" +
             "  min int(11) DEFAULT NULL,\n" +
             "  max int(11) DEFAULT NULL,\n" +
             "  costo decimal(10,2) DEFAULT NULL,\n" +
             "  idCatTipoCopia int(11) DEFAULT NULL,\n" +
-            "  PRIMARY KEY (idRangoXTipoCopiaBN),\n" +
-            "  KEY idCatTipoCopia (idCatTipoCopia),\n" +
-            "  CONSTRAINT rangosxtipocopiabn_ibfk_1 FOREIGN KEY (idCatTipoCopia) REFERENCES cattipocopia (idCatTipoCopia) ON DELETE NO ACTION ON UPDATE NO ACTION\n" +
             ") \n" +
             "\n" +
             "-- ----------------------------\n" +
@@ -208,14 +196,10 @@ public class Conexion extends SQLiteOpenHelper {
             "-- ----------------------------\n" +
             "DROP TABLE IF EXISTS rangosxtipocopiacolor;\n" +
             "CREATE TABLE rangosxtipocopiacolor (\n" +
-            "  idRangoXTipoCopiaColor int(11) NOT NULL AUTO_INCREMENT,\n" +
+            "  idRangoXTipoCopiaColor int(11) PRIMARY KEY NOT NULL AUTOINCREMENT,\n" +
             "  min int(11) DEFAULT NULL,\n" +
             "  max int(11) DEFAULT NULL,\n" +
             "  idCatTipoCopia int(11) NOT NULL,\n" +
-            "  PRIMARY KEY (idRangoXTipoCopiaColor),\n" +
-            "  KEY rangosxtipocopiacolor_ibfk_1 (idCatTipoCopia),\n" +
-            "  CONSTRAINT rangosxtipocopiacolor_ibfk_1 FOREIGN KEY (idCatTipoCopia) REFERENCES cattipocopia (idCatTipoCopia) ON DELETE NO ACTION ON UPDATE NO ACTION\n" +
-            ") \n" +
             "\n" +
             "-- ----------------------------\n" +
             "-- Records of rangosxtipocopiacolor\n" +
@@ -233,13 +217,11 @@ public class Conexion extends SQLiteOpenHelper {
             "-- ----------------------------\n" +
             "-- Table structure for ventas\n" +
             "-- ----------------------------\n" +
-            "DROP TABLE IF EXISTS ventas;\n" +
             "CREATE TABLE ventas (\n" +
-            "  idVenta int(11) NOT NULL AUTO_INCREMENT,\n" +
+            "  idVenta int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,\n" +
             "  fechaVenta datetime NOT NULL,\n" +
             "  cantidadCopiasTotal int(11) NOT NULL,\n" +
             "  Total decimal(10,2) NOT NULL,\n" +
-            "  PRIMARY KEY (idVenta)\n" +
             ") \n" +
             "\n" +
             "-- ----------------------------\n" +
