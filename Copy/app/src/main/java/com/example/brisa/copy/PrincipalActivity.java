@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class PrincipalActivity extends AppCompatActivity {
 
+    TextView txtPorcentaje;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +24,34 @@ public class PrincipalActivity extends AppCompatActivity {
         Conexion conexion= new Conexion(this);
         conexion.Abrr();
         Button btn = (Button) findViewById(R.id.btnAceptar);
+        txtPorcentaje = (TextView)findViewById(R.id.txtPorcentaje);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+            }
+        });
+
+        SeekBar seekPorcentajeColor  = (SeekBar) findViewById(R.id.pocentColor);
+
+        seekPorcentajeColor.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progress = 0;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = progress;
+                //txtPorcentaje.setText(progress + "/" + seekBar.getMax());
+                txtPorcentaje.setText(progress + "/" + seekBar.getMax());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
@@ -60,4 +87,5 @@ public class PrincipalActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

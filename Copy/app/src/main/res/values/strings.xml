@@ -4,4 +4,8 @@
     <string name="color">Color</string>
     <string name="bn">Blanco \ Negro</string>
     <string name="Titulo">El titulo de la aplicacion es </string>
+    <string name="title_activity_rangos_bn">RangosBNActivity</string>
+    <string name="carta">Carta</string>
+    <string name="oficio">Oficio</string>
+    <string name="doble_carta">Doble Carta</string>
 </resources>

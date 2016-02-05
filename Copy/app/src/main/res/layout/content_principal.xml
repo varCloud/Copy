@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/linearLayout"
         android:layout_marginBottom="80px">
 
@@ -44,10 +43,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout"
-        android:layout_toStartOf="@+id/btnAceptar"
-        android:id="@+id/linearLayout2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="20px">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/linearLayout2"
+        android:weightSum="1"
+        android:id="@+id/linearLayout3">
 
         <ImageView
             android:id="@+id/imageView"
@@ -59,26 +59,59 @@
             />
 
         <Switch
-            android:layout_width="183dp"
-            android:layout_height="wrap_content"
-            android:text="@string/color"
-            android:id="@+id/swColor" />
-
-        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_weight="1"
-            android:layout_marginLeft="40px"/>
+            android:text="@string/color"
+            android:id="@+id/swColor"
+            android:layout_gravity="right"
+            android:layout_weight="0.25" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout2">
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp">
+
+        <SeekBar
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pocentColor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:max="10"
+            android:layout_weight="0.69" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="%"
+            android:id="@+id/txtPorcentaje" />
+
+        <EditText
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_marginLeft="40px"
+            android:layout_weight="0.07" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -103,4 +136,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="40px" />
     </LinearLayout>
+
+
+
 </RelativeLayout>
