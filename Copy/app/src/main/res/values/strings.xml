@@ -8,4 +8,8 @@
     <string name="carta">Carta</string>
     <string name="oficio">Oficio</string>
     <string name="doble_carta">Doble Carta</string>
+    <string name="rangos">Rangos</string>
+    <string name="costo">Costo</string>
+    <string name="a">A</string>
+    <string name="actualizarBN">Actualizar Rangos Blanco y Negro</string>
 </resources>

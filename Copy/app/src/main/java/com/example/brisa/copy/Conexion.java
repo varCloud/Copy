@@ -16,7 +16,7 @@ public class Conexion extends SQLiteOpenHelper {
     private  Conexion conexion;
     private static final String __DATABASE = "dbCopy";
     //versión de la base de datos
-    private static final int __VERSION = 17;
+    private static final int __VERSION = 19;
     //nombre tabla y campos de tabla
     public final String __tabla__ = "persona";
     public final String CatTipoCopias = "CatTipoCopias";
