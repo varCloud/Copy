@@ -1,6 +1,7 @@
 package com.example.brisa.copy;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -72,16 +73,26 @@ public class PrincipalActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_principal, menu);
+
+        Drawable icon = getResources().getDrawable(R.drawable.color);
+        menu.getItem(0).setIcon(icon);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        Intent intent=null;
         try{
             switch (item.getItemId()) {
                 case R.id.action_actualizar_rbn:
-                    Intent intent = new Intent(this, RangosBNActivity.class);
+                    intent= new Intent(this, RangosBNActivity.class);
+                    intent.putExtra("tipoHoja", "BLANCO");
+                    this.startActivity(intent);
+                    return true;
+                case R.id.action_actualizar_rCorlor:
+                    intent = new Intent(this, RangosBNActivity.class);
+                    intent.putExtra("tipoHoja", "COLOR");
                     this.startActivity(intent);
                     return true;
                 default:

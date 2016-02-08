@@ -16,7 +16,7 @@ public class Conexion extends SQLiteOpenHelper {
     private  Conexion conexion;
     private static final String __DATABASE = "dbCopy";
     //versión de la base de datos
-    private static final int __VERSION = 19;
+    private static final int __VERSION = 4;
     //nombre tabla y campos de tabla
     public final String __tabla__ = "persona";
     public final String CatTipoCopias = "CatTipoCopias";
@@ -124,37 +124,39 @@ public class Conexion extends SQLiteOpenHelper {
 
      db.execSQL("CREATE TABLE porcentajexcopiacolor (\n" +
              "  idPorcentajeCopiaColor INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
-             "  idRangoXTipoCopiaColor INTEGER NOT NULL,\n" +
+             "  idCatTipoCopia INTEGER NOT NULL,\n" +
              "  IdPorcentaje INTEGER NOT NULL,\n" +
-             "  costo NUMERIC NOT NULL)");
+             "  costo NUMERIC NOT NULL," +
+             "  min NUMERIC NOT NULL," +
+             "  max NUMERIC NOT NULL)");
 
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (1, 1, 1, 2.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (2, 1, 2, 3.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (3, 1, 3, 5.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (4, 2, 1, 1.80)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (5, 2, 2, 2.70)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (6, 2, 3, 4.50)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (7, 3, 1, 1.50)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (8, 3, 2, 2.40)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (9, 3, 3, 4.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (10, 4, 1, 3.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (11, 4, 2, 4.50)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (12, 4, 3, 7.50)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (13, 5, 1, 2.70)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (14, 5, 2, 4.05)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (15, 5, 3, 6.75)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (16, 6, 1, 2.40)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (17, 6, 2, 3.60)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (18, 6, 3, 6.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (19, 7, 1, 4.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (20, 7, 2, 6.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (21, 7, 3, 10.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (22, 8, 1, 3.60)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (23, 8, 2, 5.40)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (24, 8, 3, 9.00)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (25, 9, 1, 3.20)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (26, 9, 2, 4.80)");
-     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (27, 9, 3, 8.00)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (1,  1, 1, 2.00,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (2,  1, 2, 3.00,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (3,  1, 3, 5.00,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (4,  1, 1, 1.80,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (5,  1, 2, 2.70,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (6,  1, 3, 4.50,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (7,  1, 1, 1.50,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (8,  1, 2, 2.40,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (9,  1, 3, 4.00,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (10, 2, 1, 3.00,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (11, 2, 2, 4.50,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (12, 2, 3, 7.50,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (13, 2, 1, 2.70,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (14, 2, 2, 4.05,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (15, 2, 3, 6.75,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (16, 2, 1, 2.40,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (17, 2, 2, 3.60,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (18, 2, 3, 6.00,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (19, 3, 1, 4.00,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (20, 3, 2, 6.00,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (21, 3, 3, 10.00,1,24)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (22, 3, 1, 3.60,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (23, 3, 2, 5.40,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (24, 3, 3, 9.00,10,49)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (25, 3, 1, 3.20,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (26, 3, 2, 4.80,50,9999)");
+     db.execSQL(" INSERT INTO porcentajexcopiacolor VALUES (27, 3, 3, 8.00,50,9999)");
 
      db.execSQL("CREATE TABLE rangosxtipocopiabn (\n" +
              "  idRangoXTipoCopiaBN INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
