@@ -3,6 +3,7 @@ package com.example.brisa.copy;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -14,8 +15,11 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -39,7 +43,7 @@ public class RangosBNActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         esColor = (getIntent().getExtras().getString("tipoHoja").equals("COLOR") ? true : false);
-        setTitle(getResources().getString(R.string.title_activity_rangos_bn)+(esColor==true ?" A Color" : " Blanco y Negro" ));
+        setTitle(getResources().getString(R.string.title_activity_rangos_bn) + (esColor == true ? " A Color" : " Blanco y Negro"));
         setContentView(R.layout.activity_rangos_bn);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,6 +56,16 @@ public class RangosBNActivity extends AppCompatActivity {
         switchDobleCarta=(Switch)findViewById(R.id.switchDobleCarta);
         switchOficio=(Switch)findViewById(R.id.switchOficio);
         context = this;
+
+        ImageView imgCarta = (ImageView) findViewById(R.id.imgCarta);
+        ImageView imgOficio = (ImageView) findViewById(R.id.imgOficio);
+        ImageView imgDobleCarta = (ImageView) findViewById(R.id.imgDobleCarta);
+        if(esColor) {
+            imgCarta.setImageResource(R.drawable.imp_colorr);
+            imgOficio.setImageResource(R.drawable.imp_colorr);
+            imgDobleCarta.setImageResource(R.drawable.imp_colorr);
+        }
+        //2px border on the right for the cell
 
         conexion = new Conexion(this);
         conexion.Abrr();
@@ -86,7 +100,9 @@ public class RangosBNActivity extends AppCompatActivity {
                 }
 
 
-                TableRow.LayoutParams layoutFila = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+                //TableRow.LayoutParams layoutFila = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+
+
 
                 if (!idCatTipoCopias.toString().equals("0") && contadorHojaSeleccionada ==1) {
                     TextView hojaSelecciona = (TextView)findViewById(R.id.tvHojaSeleccion);
@@ -105,7 +121,7 @@ public class RangosBNActivity extends AppCompatActivity {
                             TableRow row = new TableRow(context);
                             row.setId(100 + i);
                             row.setTag(idRango);
-                            row.setLayoutParams(layoutFila);
+                            //row.setLayoutParams(layoutFila);
 
                             TextView tvContador = new TextView(context);
                             EstiloView(tvContador,Integer.toString(i),300);
@@ -139,17 +155,22 @@ public class RangosBNActivity extends AppCompatActivity {
                             EstiloView(txtmin,min,304);
 
                             EditText txtmax = new EditText(context);
-                            EstiloView(txtmax,max,305);
+                            EstiloView(txtmax, max, 305);
 
                             EditText txtcosto = new EditText(context);
-                            EstiloView(txtcosto,costo,306);
+                            EstiloView(txtcosto, costo, 306);
 
                             row.addView(txtmin);
                             row.addView(tvA);
                             row.addView(txtmax);
                             row.addView(txtcosto);
                             tablaBN.addView(row);
+                            View linea = new View(context);
 
+                            linea.setBackgroundColor(Color.GRAY);
+                            linea.setMinimumHeight(2);
+                            linea.setTop(5);
+                            tablaBN.addView(linea);
                             i++;
                         } while (c.moveToNext());
                     }

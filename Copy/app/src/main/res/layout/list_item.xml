@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/ivItem"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/app_name"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/lblTipoCopia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textIsSelectable="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:text="sasadafasf"
+        android:layout_weight="1.03"
+        android:textSize="12dp"
+        android:layout_gravity="top"
+        android:layout_alignTop="@+id/ivItem"
+        android:layout_toRightOf="@+id/ivItem"
+        android:layout_toEndOf="@+id/ivItem"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/lblCantidadCopias"
+        android:textSize="11dp"
+        android:layout_below="@+id/lblCostoCopia"
+        android:layout_alignLeft="@+id/lblTipoCopia"
+        android:layout_alignStart="@+id/lblTipoCopia"
+        android:layout_marginLeft="7dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/lblCostoCopia"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp" />
+
+</RelativeLayout>

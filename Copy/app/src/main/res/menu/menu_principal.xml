@@ -11,4 +11,10 @@
     <item android:id="@+id/action_actualizar_rCorlor" android:title="@string/actualizarColor"
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+
+    <item android:id="@+id/action_sync"
+        android:title="@string/sync"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 </menu>
